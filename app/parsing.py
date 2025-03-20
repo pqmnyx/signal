@@ -13,7 +13,14 @@ class Signal:
 
     def get_normalized(self) -> "Signal":
         return Signal(bitrate=self.bitrate, data=self.data / self.MAX_VALUE)
-
+    
+    def sparse_signal(self, points_resolution: int):
+        k = len(self.data) // points_resolution
+        return Signal(bitrate = self.bitrate // k, data=self.data[::k])
+    
+    def trim(self, time_window: int):
+        return Signal(bitrate=self.bitrate, data=self.data[:int(time_window.total_seconds()*self.bitrate)])
+       
 
 def parse_wavfile(path: Path) -> Signal:
     bitrate, data = wavfile.read(path)

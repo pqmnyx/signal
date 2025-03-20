@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.0
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -83,7 +83,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1403, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1403, 33))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -99,6 +99,8 @@ class Ui_MainWindow(object):
         self.pushButton_file.setText(QCoreApplication.translate("MainWindow", u"Open signal file", None))
         self.label_a.setText(QCoreApplication.translate("MainWindow", u"a(i)", None))
         self.label_b.setText(QCoreApplication.translate("MainWindow", u"b(i)", None))
+        self.lineEdit_a.setText(QCoreApplication.translate("MainWindow", u"0.3, 0.5, 0.9", None))
+        self.lineEdit_b.setText(QCoreApplication.translate("MainWindow", u"0.1, 0.5", None))
         self.pushButton_filter.setText(QCoreApplication.translate("MainWindow", u"\u0413\u0440\u0430\u0444\u0438\u043a\u0438 ", None))
         self.label_input.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0445\u043e\u0434\u043d\u043e\u0439 \u0441\u0438\u0433\u043d\u0430\u043b", None))
         self.label_input_spectrum.setText(QCoreApplication.translate("MainWindow", u"\u0410\u0427\u0425 \u0432\u0445\u043e\u0434\u043d\u043e\u0433\u043e \u0441\u0438\u0433\u043d\u0430\u043b\u0430", None))

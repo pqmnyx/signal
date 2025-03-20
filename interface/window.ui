@@ -62,6 +62,9 @@
       <height>21</height>
      </rect>
     </property>
+    <property name="text">
+     <string>0.3, 0.5, 0.9</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_b">
     <property name="geometry">
@@ -71,6 +74,9 @@
       <width>113</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>0.1, 0.5</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_filter">
@@ -189,7 +195,7 @@
      <x>0</x>
      <y>0</y>
      <width>1403</width>
-     <height>22</height>
+     <height>33</height>
     </rect>
    </property>
   </widget>
