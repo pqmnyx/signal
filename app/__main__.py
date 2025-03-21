@@ -23,9 +23,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         chart1 = QChart()
         chart2 = QChart()       
-        
-        self.horizontalLayout.addWidget(QChartView())
-
+        chart3 = QChart()
+        chart4 = QChart()
+        self.horizontalLayout.addWidget(QChartView(c))
         self.pushButton_file.clicked.connect(self.open_file)
         self.pushButton_filter.clicked.connect(self.generate_charts)
 
