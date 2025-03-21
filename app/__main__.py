@@ -19,6 +19,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+
+
+        chart1 = QChart()
+        chart2 = QChart()       
+        
+        self.horizontalLayout.addWidget(QChartView())
+
         self.pushButton_file.clicked.connect(self.open_file)
         self.pushButton_filter.clicked.connect(self.generate_charts)
 
@@ -54,27 +61,21 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             points.append([index/output_signal.bitrate, element])
         self.drawChart(self.horizontalLayout_3, points)
 
-        ampl_array = signal_analysis.compute_amplitude_spectrum(self.signal)[:25000]
-        freq_array = signal_analysis.compute_frequency_spectrum(self.signal)[:25000]
+        ampl_array = signal_analysis.compute_amplitude_spectrum(self.signal)
+        freq_array = signal_analysis.compute_frequency_spectrum(self.signal)
         points = list(zip(freq_array, ampl_array))
-        step = 25000 // self.points_resolution
-        sparse_points = points[::step]
-        self.drawChart(self.horizontalLayout_2, sparse_points)
+        self.drawChart(self.horizontalLayout_2, points)
 
         filtered_signal = filter(a, b, self.signal)
-        ampl_array = signal_analysis.compute_amplitude_spectrum(filtered_signal)[:25000]
-        freq_array = signal_analysis.compute_frequency_spectrum(filtered_signal)[:25000]
+        ampl_array = signal_analysis.compute_amplitude_spectrum(filtered_signal)
+        freq_array = signal_analysis.compute_frequency_spectrum(filtered_signal)
         points = list(zip(freq_array, ampl_array))
-        step = 25000 // self.points_resolution
-        sparse_points = points[::step]
-        self.drawChart(self.horizontalLayout_4, sparse_points)
+        self.drawChart(self.horizontalLayout_4, points)
 
 
 
-    def drawChart(self, widget: QWidget, points: list[tuple[float,float]]):
-        for i in widget.children():
-            i.deleteLater()
-
+    def drawChart(self, chart: QChart, points: list[tuple[float,float]]) -> QChart:
+        chart.removeAllSeries()
         line_series = QSplineSeries()
         for x, y in points:
             line_series.append(x,y)
@@ -83,7 +84,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         chart.addSeries(line_series)
         chart.createDefaultAxes()
         chart.legend().setVisible(0)
-        widget.addWidget(QChartView(chart))
+
+        return chart
 
     
 
