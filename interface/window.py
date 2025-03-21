@@ -17,14 +17,14 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QGroupBox, QHBoxLayout,
     QLabel, QLayout, QLineEdit, QMainWindow,
-    QPushButton, QSizePolicy, QStatusBar, QVBoxLayout,
-    QWidget)
+    QPushButton, QScrollArea, QSizePolicy, QStatusBar,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(954, 634)
+        MainWindow.resize(797, 723)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_7 = QVBoxLayout(self.centralwidget)
@@ -101,7 +101,16 @@ class Ui_MainWindow(object):
 
         self.groupBox = QGroupBox(self.centralwidget)
         self.groupBox.setObjectName(u"groupBox")
-        self.horizontalLayout_7 = QHBoxLayout(self.groupBox)
+        self.gridLayout_3 = QGridLayout(self.groupBox)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.scrollArea = QScrollArea(self.groupBox)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 2044, 504))
+        self.horizontalLayout_7 = QHBoxLayout(self.scrollAreaWidgetContents_2)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setSpacing(3)
@@ -111,8 +120,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addLayout(self.horizontalLayout)
 
-        self.label_input = QLabel(self.groupBox)
+        self.label_input = QLabel(self.scrollAreaWidgetContents_2)
         self.label_input.setObjectName(u"label_input")
+        self.label_input.setMinimumSize(QSize(500, 0))
 
         self.verticalLayout_3.addWidget(self.label_input)
 
@@ -127,8 +137,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addLayout(self.horizontalLayout_2)
 
-        self.label_input_spectrum = QLabel(self.groupBox)
+        self.label_input_spectrum = QLabel(self.scrollAreaWidgetContents_2)
         self.label_input_spectrum.setObjectName(u"label_input_spectrum")
+        self.label_input_spectrum.setMinimumSize(QSize(500, 0))
 
         self.verticalLayout_4.addWidget(self.label_input_spectrum)
 
@@ -143,8 +154,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addLayout(self.horizontalLayout_3)
 
-        self.label_output = QLabel(self.groupBox)
+        self.label_output = QLabel(self.scrollAreaWidgetContents_2)
         self.label_output.setObjectName(u"label_output")
+        self.label_output.setMinimumSize(QSize(500, 0))
 
         self.verticalLayout_5.addWidget(self.label_output)
 
@@ -159,14 +171,19 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addLayout(self.horizontalLayout_4)
 
-        self.label_output_spectrum = QLabel(self.groupBox)
+        self.label_output_spectrum = QLabel(self.scrollAreaWidgetContents_2)
         self.label_output_spectrum.setObjectName(u"label_output_spectrum")
+        self.label_output_spectrum.setMinimumSize(QSize(500, 0))
 
         self.verticalLayout_6.addWidget(self.label_output_spectrum)
 
         self.verticalLayout_6.setStretch(0, 1)
 
         self.horizontalLayout_7.addLayout(self.verticalLayout_6)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents_2)
+
+        self.gridLayout_3.addWidget(self.scrollArea, 0, 0, 1, 1)
 
 
         self.verticalLayout_7.addWidget(self.groupBox)
